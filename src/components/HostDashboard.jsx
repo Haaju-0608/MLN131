@@ -180,7 +180,7 @@ const HostDashboard = () => {
                             <p className="text-gray-400 text-sm mb-2">Scan to Join</p>
                             <div className="bg-white p-2 rounded-lg inline-block">
                                 <QRCodeSVG
-                                    /* Khớp với Route /game/:roomCode trong App.js */
+                                    // Đảm bảo có hậu tố /game/${roomCode} để React Router nhận diện đúng trang
                                     value={`https://mln-131-beta.vercel.app/game/${roomCode}`}
                                     size={180}
                                     level={"H"}
