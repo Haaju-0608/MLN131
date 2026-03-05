@@ -181,7 +181,7 @@ const HostDashboard = () => {
                             <div className="bg-white p-2 rounded-lg inline-block">
                                 <QRCodeSVG
                                     /* Khớp với Route /game/:roomCode trong App.js */
-                                    value={`https://zincographic-kris-clinically.ngrok-free.dev/game/${roomCode}`}
+                                    value={`https://mln-131-beta.vercel.app/game/${roomCode}`}
                                     size={180}
                                     level={"H"}
                                 />
