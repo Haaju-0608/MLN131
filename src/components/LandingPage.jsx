@@ -38,6 +38,19 @@ const LandingPage = () => {
         setIsLoading(true);
 
         if (mode === 'create') {
+            const adminPassword = prompt("Nhập mật mã Admin để tạo phòng:");
+            if (adminPassword === "12345") { // Bạn có thể đổi '123456' thành mã của bạn
+                setIsLoading(true);
+                try {
+                    await createRoom(name);
+                } catch (err) {
+                    setError("Không thể tạo phòng. Thử lại sau!");
+                } finally {
+                    setIsLoading(false);
+                }
+            } else {
+                setError("Mật mã Admin không chính xác! Bạn không có quyền tạo phòng.");
+            }
             const code = generateRoomCode();
             await createRoom(code, name);
         } else {
