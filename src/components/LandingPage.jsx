@@ -25,46 +25,46 @@ const LandingPage = () => {
     // 2. Tạo hàm xử lý chung để "kích hoạt" nhạc khi nhấn nút
     const handleAction = async (e) => {
         e.preventDefault();
-
-        // Mở khóa âm thanh ngay khi người dùng tương tác với Form
         playMusic();
 
-        if (!name.trim()) {
+        const currentName = name.trim(); // Lưu tên vào biến cục bộ ngay lập tức
+        if (!currentName) {
             setError('Please enter your name');
             return;
         }
 
-        setError('');
-        setIsLoading(true);
-
         if (mode === 'create') {
             const adminPassword = prompt("Nhập mật mã Admin để tạo phòng:");
-            if (adminPassword === "12345") { // Bạn có thể đổi '123456' thành mã của bạn
+            if (adminPassword === "12345") {
+                const currentName = name.trim();
                 setIsLoading(true);
                 try {
-                    await createRoom(name);
+                    // 1. Tạo mã phòng ngẫu nhiên 4 chữ cái (ví dụ: ABCD)
+                    const newCode = Math.random().toString(36).substring(2, 6).toUpperCase();
+
+                    // 2. Truyền ĐỦ 2 tham số: code và name
+                    await createRoom(newCode, currentName);
+
+                    console.log("Tạo phòng thành công:", newCode);
                 } catch (err) {
-                    setError("Không thể tạo phòng. Thử lại sau!");
+                    setError("Lỗi tạo phòng: " + err.message);
                 } finally {
                     setIsLoading(false);
                 }
-            } else {
-                setError("Mật mã Admin không chính xác! Bạn không có quyền tạo phòng.");
+            } else if (adminPassword !== null) {
+                setError("Mật mã sai!");
             }
-            const code = generateRoomCode();
-            await createRoom(code, name);
         } else {
+            // Logic Join giữ nguyên nhưng dùng currentName
             if (!roomCode.trim()) {
                 setError('Please enter a room code');
-                setIsLoading(false);
                 return;
             }
-            const success = await joinRoom(roomCode.toUpperCase(), name);
-            if (!success) {
-                setError('Room not found. Please check the code and try again.');
-            }
+            setIsLoading(true);
+            const success = await joinRoom(roomCode.toUpperCase(), currentName);
+            if (!success) setError('Room not found');
+            setIsLoading(false);
         }
-        setIsLoading(false);
     };
 
     return (
