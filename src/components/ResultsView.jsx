@@ -69,24 +69,29 @@ const ResultsView = () => {
             </div>
 
             {/* THÔNG ĐIỆP KẾT THÚC MLN131 */}
+            {/* THÔNG ĐIỆP KẾT THÚC MLN131 - ĐÃ TỐI ƯU THEO SLOGAN CỦA HẬU */}
             <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.8 }}
                 className="max-w-2xl bg-gradient-to-br from-blue-900/40 to-purple-900/40 p-8 rounded-3xl border border-blue-500/30 shadow-2xl text-center"
             >
-                <h2 className="text-2xl font-bold text-blue-300 mb-4">💡 Thông điệp từ "The Great Escape"</h2>
-                <div className="space-y-4 text-gray-200 leading-relaxed italic">
-                    <p>
-                        "Cuộc cách mạng công nghiệp 4.0 không chỉ thay đổi công nghệ, nó thay đổi cả vai trò của chúng ta."
+                <h2 className="text-2xl font-bold text-blue-300 mb-4">💡 Thông điệp từ "The Ultimate Worker 4.0"</h2>
+                <div className="space-y-4 text-gray-200 leading-relaxed">
+                    <p className="italic">
+                        "Sứ mệnh của giai cấp công nhân trong kỷ nguyên số không phải là đối đầu với máy móc, mà là làm chủ chúng."
                     </p>
-                    <p className="not-italic font-bold text-white text-lg">
-                        Công nhân hiện đại là người biết kết hợp <span className="text-amber-400">KỸ NĂNG CƠ BẢN</span> với <span className="text-blue-400">TƯ DUY KỸ THUẬT SỐ</span>.
-                    </p>
+                    <div className="py-4">
+                        <p className="text-2xl font-black text-white leading-tight uppercase tracking-wider">
+                            "Công nhân <span className="text-red-500">không bị thay thế</span> bởi AI,<br />
+                            mà là công nhân <span className="text-green-400">dùng AI</span> sẽ thay thế <br />
+                            công nhân không dùng AI"
+                        </p>
+                    </div>
                 </div>
                 <div className="mt-6 pt-6 border-t border-white/10">
-                    <p className="text-amber-500 font-black text-xl">
-                        ĐỪNG CHỈ LÀ CÔNG NHÂN, HÃY LÀ NGƯỜI LÀM CHỦ CÔNG NGHỆ!
+                    <p className="text-amber-500 font-black text-xl tracking-widest">
+                        XÂY DỰNG GIAI CẤP CÔNG NHÂN VIỆT NAM HIỆN ĐẠI - LỚN MẠNH
                     </p>
                 </div>
             </motion.div>
