@@ -6,7 +6,7 @@ import { calculateQuizScore, getLevelByPoints } from '../utils/EvolutionLogic';
 import { ref, get, update } from 'firebase/database';
 import { database } from '../utils/FirebaseConfig';
 
-const QUESTION_TIME = 30;
+const QUESTION_TIME = 10;
 
 const QuizComponent = ({ onRoundEnd }) => {
     const {
@@ -66,7 +66,7 @@ const QuizComponent = ({ onRoundEnd }) => {
             // Đợi 3-4 giây để đảm bảo mọi máy khách đã submitAnswer xong
             setTimeout(() => {
                 calculateAndUpdateScores();
-            }, 3500);
+            }, 2000);
         }
     }, [isHost, currentIndex, roomCode]);
 

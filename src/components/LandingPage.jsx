@@ -174,9 +174,9 @@ const LandingPage = () => {
                 {/* Evolution Info & Instructions giữ nguyên như code của bạn */}
                 <div className="mt-8 grid grid-cols-3 gap-2">
                     {[
-                        { icon: '👨‍🔧', lv: 'Lv.1', pts: '0-2k', color: 'text-amber-400' },
-                        { icon: '👷‍♂️', lv: 'Lv.2', pts: '2k-5k', color: 'text-green-400' },
-                        { icon: '🤖', lv: 'Lv.3', pts: '5k+', color: 'text-blue-400' }
+                        { icon: '👨‍🔧', lv: 'Lv.1', pts: '0-1500', color: 'text-amber-400' },
+                        { icon: '👷‍♂️', lv: 'Lv.2', pts: '1501-4000', color: 'text-green-400' },
+                        { icon: '🤖', lv: 'Lv.3', pts: '4k+', color: 'text-blue-400' }
                     ].map((item, i) => (
                         <div key={i} className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-2 border border-white/5 text-center">
                             <div className="text-xl md:text-2xl mb-1">{item.icon}</div>

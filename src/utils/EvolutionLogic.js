@@ -7,32 +7,32 @@ export const LEVELS = {
         id: 1,
         name: 'Manual Worker',
         minPoints: 0,
-        maxPoints: 2000,
+        maxPoints: 1500, // Chỉ cần đúng ~2 câu là qua bàn
         avatar: '👨‍🔧',
         title: 'Manual Worker',
-        description: 'Early Industrial Stage - Hard work and determination',
+        description: 'Giai đoạn sơ khai - Lao động chân tay và ý chí',
         color: '#F59E0B',
         glowColor: 'rgba(245, 158, 11, 0.5)',
     },
     LEVEL_2: {
         id: 2,
         name: 'Mechanical Worker',
-        minPoints: 2001,
-        maxPoints: 6000, // Tăng nhẹ mốc này để Level 3 thực sự là một "đặc ân"
+        minPoints: 1501,
+        maxPoints: 4000, // Tầm câu thứ 5-6 là bắt đầu chạm mốc này
         avatar: '👷‍♂️',
         title: 'Mechanical Worker',
-        description: 'Mass Production Era - Efficiency and skill',
+        description: 'Thời đại sản xuất dây chuyền - Hiệu quả và kỹ năng',
         color: '#10B981',
         glowColor: 'rgba(16, 185, 129, 0.5)',
     },
     LEVEL_3: {
         id: 3,
         name: 'Knowledge Worker 4.0',
-        minPoints: 6001,
+        minPoints: 4001, // Mốc này khả thi để đạt được ở cuối game
         maxPoints: Infinity,
-        avatar: '🤖', // Để 1 emoji cho sạch giao diện, hoặc '🤖👨‍💻' nếu bạn thích
+        avatar: '🤖',
         title: 'Knowledge Worker 4.0',
-        description: 'Digital/AI Era - Innovation and intelligence',
+        description: 'Kỷ nguyên Số & AI - Sáng tạo và trí tuệ',
         color: '#3B82F6',
         glowColor: 'rgba(59, 130, 246, 0.5)',
     },
@@ -61,10 +61,16 @@ export const getLevelByNumber = (levelNumber) => {
 
 // Calculate points needed for next level
 export const getPointsForNextLevel = (currentPoints) => {
-    if (currentPoints <= 2000) {
-        return { nextLevel: 2, pointsNeeded: 2001 - currentPoints };
-    } else if (currentPoints <= 5000) {
-        return { nextLevel: 3, pointsNeeded: 5001 - currentPoints };
+    if (currentPoints <= LEVELS.LEVEL_1.maxPoints) {
+        return {
+            nextLevel: 2,
+            pointsNeeded: (LEVELS.LEVEL_1.maxPoints + 1) - currentPoints
+        };
+    } else if (currentPoints <= LEVELS.LEVEL_2.maxPoints) {
+        return {
+            nextLevel: 3,
+            pointsNeeded: (LEVELS.LEVEL_2.maxPoints + 1) - currentPoints
+        };
     } else {
         return { nextLevel: null, pointsNeeded: 0 };
     }
@@ -92,14 +98,14 @@ export const checkLevelUp = (oldPoints, newPoints) => {
 
 // Calculate quiz score based on time
 // Formula: Points = (RemainingTime / TotalTime) * 1000
-export const calculateQuizScore = (remainingTime, totalTime = 30) => {
+export const calculateQuizScore = (remainingTime, totalTime = 10) => {
     const time = parseFloat(remainingTime);
     const total = parseFloat(totalTime);
 
     if (isNaN(time) || time <= 0) return 100;
 
-    // Tính điểm dựa trên tốc độ (Ví dụ: còn 30s được 1000đ, còn 1s được ~133đ)
-    // Thêm hệ số làm tròn đẹp (bội số của 10)
+    // Nếu còn 10s (max): (10/10 * 900) + 100 = 1000 điểm
+    // Nếu còn 1s (min): (1/10 * 900) + 100 = 190 điểm
     const score = Math.round(((time / total) * 900) + 100);
 
     return Math.min(Math.max(score, 100), 1000);
@@ -116,15 +122,20 @@ export const getLevelProgress = (points) => {
     if (points <= LEVELS.LEVEL_1.maxPoints) {
         return {
             currentLevel: 1,
+            // Tính % dựa trên mốc 1500
             progress: Math.min((points / LEVELS.LEVEL_1.maxPoints) * 100, 100),
             nextLevelPoints: LEVELS.LEVEL_1.maxPoints + 1,
         };
     } else if (points <= LEVELS.LEVEL_2.maxPoints) {
-        const range = LEVELS.LEVEL_2.maxPoints - LEVELS.LEVEL_2.minPoints;
-        const currentProgress = points - LEVELS.LEVEL_2.minPoints;
+        // Tính % dựa trên khoảng từ 1501 đến 4000
+        const startOfLevel = LEVELS.LEVEL_2.minPoints;
+        const endOfLevel = LEVELS.LEVEL_2.maxPoints;
+        const range = endOfLevel - startOfLevel;
+        const currentProgress = points - startOfLevel;
+
         return {
             currentLevel: 2,
-            progress: Math.min((currentProgress / range) * 100, 100),
+            progress: Math.max(0, Math.min((currentProgress / range) * 100, 100)),
             nextLevelPoints: LEVELS.LEVEL_2.maxPoints + 1,
         };
     } else {

@@ -84,7 +84,7 @@ const HostDashboard = () => {
                 if (answer && Number(answer.answerIndex) === correctIdx) {
                     // Tính điểm dựa trên thời gian còn lại
                     const timeBonus = Number(answer.timeRemaining || 0);
-                    let points = calculateQuizScore(timeBonus, 30); // 30 là QUESTION_TIME
+                    let points = calculateQuizScore(timeBonus, 10); // 10 là QUESTION_TIME
                     if (points <= 0) points = 100;
 
                     const oldScore = Number(gameData.players[uid]?.score || 0);
@@ -229,7 +229,7 @@ const HostDashboard = () => {
                                 >
                                     {quizQuestions.map((q, idx) => (
                                         <option key={q.id} value={idx}>
-                                            Q{idx + 1}: {q.question.substring(0, 30)}...
+                                            Q{idx + 1}: {q.question.substring(0, 10)}...
                                         </option>
                                     ))}
                                 </select>
