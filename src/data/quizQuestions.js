@@ -100,8 +100,8 @@ export const quizQuestions = [
         options: [
             'A. Phủ định sạch trơn các giá trị văn hóa cũ để xây dựng văn hóa vô sản hoàn toàn mới.',
             'B. Tập trung cải tạo cái cũ lỗi thời, xây dựng cái mới tiến bộ trong tư tưởng và lối sống.',
-            'Artificial Intelligence and digital technology',
-            'Horse-drawn carriages'
+            'C. Ưu tiên phát triển văn hóa đi trước một bước so với phát triển kinh tế và chính trị.',
+            'D. Khôi phục lại các giá trị đạo đức truyền thống phong kiến để ổn định trật tự xã hội.'
         ],
         correctIndex: 1,
         explanation: 'Đây là bản chất của cách mạng văn hóa: cải tạo và xây dựng song song, dựa trên hệ giá trị mới'
@@ -122,41 +122,41 @@ export const quizQuestions = [
     {
         id: 10,
         chapter: 'Chapter 2: Historical Mission of the Working Class',
-        question: 'How has the role of workers evolved from Level 1 to Level 3?',
+        question: 'Điều kiện khách quan nào là nền tảng để giai cấp công nhân có thể thực hiện sứ mệnh lịch sử của mình?',
         options: [
-            'From physical to mental labor',
-            'From simple to complex skills',
-            'From manual to digital tools',
-            'All of the above'
+            'A. Giai cấp công nhân có ý thức tổ chức kỷ luật cao và giác ngộ chính trị sâu sắc.',
+            'B. Giai cấp công nhân ra đời và phát triển cùng với nền đại công nghiệp tư bản chủ nghĩa, đặt họ vào vị trí trung tâm của lực lượng sản xuất.',
+            'C. Đảng Cộng sản được thành lập và lãnh đạo phong trào công nhân.',
+            'D. Giai cấp công nhân liên minh được với giai cấp nông dân và các tầng lớp lao động khác.'
         ],
-        correctIndex: 3,
-        explanation: 'Workers have evolved from physical labor (Level 1) to using machines (Level 2) to leveraging digital tools and AI (Level 3).'
+        correctIndex: 1,
+        explanation: '(Đây là điều kiện khách quan: GCCN sinh ra từ nền sản xuất lớn, buộc phải tổ chức tập thể và mâu thuẫn trực tiếp với GCTS)'
     },
     {
         id: 11,
         chapter: 'Chapter 2: Historical Mission of the Working Class',
-        question: 'What is "Upskilling" in the context of Worker 4.0?',
+        question: 'Trong thời đại Cách mạng công nghiệp 4.0, điều kiện chủ quan nào được xem là quyết định thắng lợi của sứ mệnh lịch sử giai cấp công nhân?',
         options: [
-            'Working longer hours',
-            'Learning new digital and technical skills',
-            'Doing only manual work',
-            'Reducing work efficiency'
+            'A. Số lượng giai cấp công nhân ngày càng đông đảo trong xã hội.',
+            'B. Giai cấp công nhân nắm giữ nhiều tư liệu sản xuất hiện đại.',
+            'C. Trình độ tri thức, làm chủ công nghệ và tổ chức kỷ luật của giai cấp công nhân.',
+            'D. Sự ủng hộ của các nước xã hội chủ nghĩa trên thế giới.'
         ],
-        correctIndex: 1,
-        explanation: 'Upskilling refers to acquiring new digital and technical skills to adapt to the evolving workplace and technological advancements.'
+        correctIndex: 2,
+        explanation: '(Trong thời đại số, công nhân 4.0 phải "tri thức hóa" – đây là nhân tố chủ quan then chốt thay thế cho lợi thế số lượng trước đây)'
     },
     {
         id: 12,
         chapter: 'Chapter 2: Historical Mission of the Working Class',
-        question: 'What is the significance of "Continuous Learning" for modern workers?',
+        question: 'Tại sao "tổ chức kỷ luật" lại được xem là điều kiện chủ quan đặc biệt quan trọng của giai cấp công nhân?',
         options: [
-            'It is no longer important',
-            'Essential for staying relevant in a changing economy',
-            'Only for older workers',
-            'Only for managers'
+            'A. Vì lao động trong nền đại công nghiệp rèn luyện cho công nhân tính tổ chức, kỷ luật và tinh thần tập thể – đây là ưu thế mà các giai cấp khác không có.',
+            'B. Vì giai cấp công nhân là giai cấp duy nhất không có tư hữu nên dễ đoàn kết hơn.',
+            'C. Vì Đảng Cộng sản đã rèn luyện kỷ luật cho giai cấp công nhân từ bên ngoài.',
+            'D. Vì tổ chức kỷ luật giúp công nhân tăng năng suất lao động và thu nhập.'
         ],
-        correctIndex: 1,
-        explanation: 'Continuous learning is essential for modern workers to stay relevant, adapt to new technologies, and advance their careers.'
+        correctIndex: 0,
+        explanation: 'Sản xuất công nghiệp mang tính xã hội hóa cao, buộc công nhân phải hoạt động có tổ chức, từ đó hình thành sức mạnh tập thể'
     }
 ];
 
