@@ -74,8 +74,8 @@ const LandingPage = () => {
             <button
                 type="button"
                 onClick={() => {
-                    playMusic(); // Kích hoạt nếu đang bị chặn
-                    toggleMute(); // Đổi trạng thái
+                    toggleMute();
+                    playMusic(); // Đổi trạng thái
                 }}
                 className="fixed top-4 right-4 z-[1000] p-3 bg-gray-800/80 text-white rounded-full hover:bg-gray-700 transition-all border border-amber-500/50 shadow-lg"
             >
